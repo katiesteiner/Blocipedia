@@ -38,6 +38,8 @@ gem 'spring',        group: :development
 gem 'devise'
 
 gem 'bootstrap-sass'
+
+gem 'figaro', '1.0'
 # Use unicorn as the app server
 # gem 'unicorn'
 

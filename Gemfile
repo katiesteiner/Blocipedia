@@ -42,6 +42,8 @@ gem 'bootstrap-sass'
 gem 'figaro', '1.0'
 
 gem 'pundit'
+
+gem 'faker'
 # Use unicorn as the app server
 # gem 'unicorn'
 

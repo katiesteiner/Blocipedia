@@ -44,6 +44,9 @@ gem 'figaro', '1.0'
 gem 'pundit'
 
 gem 'faker'
+
+gem 'stripe'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

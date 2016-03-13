@@ -2,4 +2,17 @@ class WikiPolicy < ApplicationPolicy
   def index?
     true
   end
+
+  def show?
+    record.private != true || (user.present? && ((user.role == 'admin') || record.user == user)) #add to end || record.users.include?(user) for collaborators
+  end
+
+  def update?
+    show?
+  end
+
+  def edit?
+    show?
+  end
+
 end

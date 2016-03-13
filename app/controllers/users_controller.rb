@@ -2,6 +2,14 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def downgrade
+    @user = current_user
+    @user.role = "standard"
+    @user.save!
+    @wikis = Wiki.where(private: true, user_id: @user.id)
+    @wikis.each do |wiki|
+      wiki.private = false
+      wiki.save!
+    end
     if current_user.update(role: 'standard')
       flash[:notice] = "Account was downgraded successfully."
     else

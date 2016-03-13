@@ -50,6 +50,14 @@ premium = User.new(
 premium.skip_confirmation!
 premium.save!
 
+premiumtwo = User.new(
+  name: 'Premiumtwo User',
+  email: 'premiumtwo@example.com',
+  password: 'helloworld',
+  role: 'premium'
+  )
+premiumtwo.skip_confirmation!
+premiumtwo.save!
 
 puts "Seed finished"
 puts "#{Wiki.count} wikis created"

@@ -7,6 +7,6 @@
 
 <% @wikis.each do |wiki| %>
   <% if policy(wiki).show? %>
-    <p><%= link_to wiki.title, wiki %></p>
+    <p><%= link_to (markdown_to_html wiki.title), wiki %></p>
   <% end %>
 <% end %>

@@ -3,7 +3,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
   has_many :wikis, dependent: :destroy
+
+  has_many :collaborators
+  has_many :wiki_collaborations, through: :collaborators, source: :wiki
   
   after_initialize :init
 

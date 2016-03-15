@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   
   after_initialize :init
 
+  def all_wikis
+    wikis.joins(wiki_collaborations)
+  end
+
   def init
     self.role ||= 'standard'
   end

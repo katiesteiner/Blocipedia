@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
   def index
-    @wikis = FilterWikis.call(current_user)
+    @wikis = FilterWikis.call(current_user || NullUser.new)
   end
 
   def show

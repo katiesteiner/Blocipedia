@@ -1,13 +1,13 @@
 class FilterWikis
 
   def self.call(user)
-    case user.role
-    when 'admin'
+    case user.role.to_sym
+    when :admin
       Wiki.all
-    when 'premium'
-      Wiki.where('user_id = ? OR private = ?', user.id, true) + user.wiki_collaborations
+    when :premium
+      user.all_wikis
     else
-      Wiki.where('user_id = ? OR priavete = ?', user.id, false)
+      Wiki.where('user_id = ? OR private = ?', user.id, false)
     end
   end
 

@@ -18,7 +18,7 @@ class WikiPolicy < ApplicationPolicy
   class Scope
     attr_reader :user, :scope
 
-    def initialize(user, scope)
+    def initialize(user,scope)
       @user = user
       @scope = scope
     end
@@ -27,9 +27,9 @@ class WikiPolicy < ApplicationPolicy
       if user.role == 'admin'
         scope.all
       elsif user.role == 'premium'
-        scope.where(:public => true || wiki.user == user || wiki.collaborated_users.include?(user))
+        scope.where(:private => true || wiki.user == user || wiki.collaborated_users.include?(user))
       else
-        scope.where(:public => true)
+        scope.where(:private => false || wiki.user == user)
       end
     end
   end

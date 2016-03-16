@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  has_many :collaborators
-  has_many :wiki_collaborators, through: :collaborators, source: :wiki
 
   def downgrade
     @user = current_user

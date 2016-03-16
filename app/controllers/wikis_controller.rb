@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
   def index
-    @wikis = policy_scope(Wiki)
+    @wikis = FilterWikis.call(current_user || NullUser.new)
   end
 
   def show

@@ -11,6 +11,12 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'pry-rails'
+  gem 'quiet_assets'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -47,9 +53,7 @@ gem 'faker'
 
 gem 'stripe'
 
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
-end
+
 
 gem 'redcarpet'
 

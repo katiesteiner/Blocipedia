@@ -1,7 +1,6 @@
 class CollaboratorsController < ApplicationController
-  def index
+  def create
   end
-
-  def new
+  def destroy
   end
 end

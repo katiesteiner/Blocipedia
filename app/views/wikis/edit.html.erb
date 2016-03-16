@@ -2,22 +2,21 @@
 
 <%= render partial: 'form', locals: { wiki: @wiki } %>
 
-      <% if current_user.role == 'premium' || current_user.role == 'admin' %>
-        <h3>Manage Collaborators</h3>
-        <table class = 'table'>
-          <% current_user do |user| %>
-          <tr>
-           
-              <td><%= @users.all %></td>
-              <td>
-              <% if @wiki.users.include? user %>
-                <%= link_to "Remove Collaborator", collaborator_path(wiki_id: @wiki.id, user_id: user.id), method: :delete, class: 'btn btn-danger' %>
-              <% else %>
-                <%= link_to "Add Collaborator", collaborators_path(wiki_id: @wiki.id, user_id: user.id), method: :post, class: 'btn btn-success' %>
-              <% end %>
-            </td>
-          </tr>
-      <% end %>
-    </table>
-  <% end %>
+<%# if current_user.role == 'premium' || current_user.role == 'admin' %>
+  <h3>Manage Collaborators</h3>
+  <table class = 'table'>
+    <% @users.each do |user| %>
+    <tr>
+      <td>
+        <p><%= user.email %></p>
+        <% if @wiki.users.include?(user) %>
+        <%= link_to "Remove Collaborator", collaborator_path(wiki_id: @wiki.id, user_id: user.id), method: :delete, class: 'btn btn-danger' %>
+        <% else %>
+        <%= link_to "Add Collaborator", collaborators_path(wiki_id: @wiki.id, user_id: user.id), method: :post, class: 'btn btn-success' %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+<%# end %>
 

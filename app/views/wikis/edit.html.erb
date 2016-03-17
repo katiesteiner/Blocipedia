@@ -2,7 +2,7 @@
 
 <%= render partial: 'form', locals: { wiki: @wiki } %>
 
-    <% if current_user.role == 'premium' && current_user == @wiki.user %>  
+    <% if policy(@wiki).can_add_collaborators? %>  
         <h3>Manage Collaborators</h3>
         <table class = 'table'>
           <% @users.each do |user| %>

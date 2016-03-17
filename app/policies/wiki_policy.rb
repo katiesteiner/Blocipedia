@@ -16,7 +16,11 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.present? || user.role == 'admin'
+    record.user == user || user.role == 'admin'
+  end
+
+  def can_add_collaborators?
+    record.private? && user.present? && user.premium? && record.user == user
   end
 
   class Scope

@@ -2,15 +2,15 @@
 
 <%= render partial: 'form', locals: { wiki: @wiki } %>
 
-      <% if current_user.role == 'premium' || current_user.role == 'admin' %>
+    <% if current_user.role == 'premium' %>  
         <h3>Manage Collaborators</h3>
         <table class = 'table'>
-          <% current_user do |user| %>
+          <% @users.each do |user| %>
           <tr>
            
-              <td><%= @users.all %></td>
+              <td><%= user.email %></td>
               <td>
-              <% if @wiki.users.include? user %>
+              <% if @wiki.users.include?(user) %>
                 <%= link_to "Remove Collaborator", collaborator_path(wiki_id: @wiki.id, user_id: user.id), method: :delete, class: 'btn btn-danger' %>
               <% else %>
                 <%= link_to "Add Collaborator", collaborators_path(wiki_id: @wiki.id, user_id: user.id), method: :post, class: 'btn btn-success' %>
@@ -20,4 +20,5 @@
       <% end %>
     </table>
   <% end %>
+
 

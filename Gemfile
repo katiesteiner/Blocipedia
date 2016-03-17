@@ -53,9 +53,9 @@ gem 'faker'
 
 gem 'stripe'
 
-
-
 gem 'redcarpet'
+
+gem 'google-webfonts'
 
 # Use unicorn as the app server
 # gem 'unicorn'

@@ -4,9 +4,10 @@ class FilterWikis
     when :admin
       Wiki.all
     when :premium
-      Wiki.where('user_id = ? OR private = ?', user.id, false) + user.wiki_collaborators
+      Wiki.where(:private => true || wiki.user == user || wiki.collaborated_users.include?(user)) + Wiki.where('user_id = ? OR private = ?', user.id, false)
     else
       Wiki.where('user_id = ? OR private = ?', user.id, true) + Wiki.where('user_id = ? OR private = ?', user.id, false) + user.wiki_collaborators
     end
   end
 end
+

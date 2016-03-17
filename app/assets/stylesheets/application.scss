@@ -1,5 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Rock+Salt);
+
+h1, h2, h3, h4, a, li, p, ul, label, alert, link, notice, error {
+  font-family: 'Rock Salt', cursive;
+}
 
 .user-info {
   margin-top: 9px;

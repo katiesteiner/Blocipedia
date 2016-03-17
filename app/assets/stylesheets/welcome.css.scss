@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "font-awesome";
+@import "google-webfonts";
 
 
 /* HOME SECTION STYLES */
@@ -74,4 +75,7 @@
   text-decoration: none;
 }
 
+h1, h4 {
+  font-family: 'Quicksand', sans-serif;
+}
 

@@ -15,6 +15,10 @@ class WikiPolicy < ApplicationPolicy
     show?
   end
 
+  def destroy?
+    user.present? || user.role == 'admin'
+  end
+
   class Scope
     attr_reader :user, :scope
 

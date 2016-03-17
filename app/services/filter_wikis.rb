@@ -6,7 +6,7 @@ class FilterWikis
     when :premium
       Wiki.where('user_id = ? OR private = ?', user.id, false) + user.wiki_collaborators
     else
-      Wiki.where('user_id = ? OR private = ?', user.id, true) + Wiki.where('user_id = ? OR private = ?', user.id, false) + user.wiki_collaborators
+      Wiki.where(private: false)
     end
   end
 end

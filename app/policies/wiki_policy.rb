@@ -11,6 +11,10 @@ class WikiPolicy < ApplicationPolicy
     show?
   end
 
+  def can_add_collaborators?
+    record.private? && user.present? && user.premium? && record.user == user
+  end
+
   def edit?
     show?
   end

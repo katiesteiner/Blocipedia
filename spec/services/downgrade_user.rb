@@ -15,5 +15,6 @@ describe DowngradeUser do
       DowngradeUser.call(@user)
       expect(@user.wikis.where(private: true).count).to eql(0)
     end
+    
   end
 end

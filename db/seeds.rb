@@ -40,6 +40,16 @@ standard = User.new(
 standard.skip_confirmation!
 standard.save!
 
+#create another standard user
+standardtwo = User.new(
+  name: 'Standardtwo User',
+  email: 'standardtwo@example.com',
+  password: 'helloworld',
+  role: 'standard'
+  )
+standardtwo.skip_confirmation!
+standardtwo.save!
+
 #create premium user
 premium = User.new(
   name: 'Premium User',
